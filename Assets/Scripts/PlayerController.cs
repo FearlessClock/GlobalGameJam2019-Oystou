@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour
 
     public float speed;      
     public Rigidbody2D rb;
-    
+
+    public float fallingBackTime;
+    private float currentFallingBackTime;
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
                 FallBack();
                 break;
             case PlayerState.FoundObject:
+                FoundObject();
                 break;
             default:
                 break;
@@ -53,16 +56,34 @@ public class PlayerController : MonoBehaviour
 
         transform.localScale = temp;
         rb.velocity = new Vector2(moveX, moveY) * speed;
-        Debug.Log("" + rb.velocity.x);
     }
 
     public void FallBack()
     {
+        currentFallingBackTime -= Time.deltaTime;
 
+        if (currentFallingBackTime <= 0)
+        {
+            playerState = PlayerState.Moving;
+        }
+        else if (currentFallingBackTime <= fallingBackTime/2f)
+        {
+            rb.velocity *= 0;
+        }
     }
 
-    public void UpdateState()
+    public void FoundObject()
     {
+        
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Obstacle"))
+        {
+            playerState = PlayerState.FallingBack;
+            currentFallingBackTime = fallingBackTime;
+            rb.velocity *= -0.25f;
+        }
     }
 }
