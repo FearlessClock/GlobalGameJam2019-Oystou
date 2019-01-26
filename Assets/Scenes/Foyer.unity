@@ -229,7 +229,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 342523335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48077fe2e1a5efc4990387867b0efaaf, type: 3}
+  m_Script: {fileID: 11500000, guid: ab30ac8357a6eb54e93cb144f2fb22cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &342523337
@@ -565,8 +565,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -210393251
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2143,7 +2143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1491521992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8374a7e88543abd4c833f79c97c6d31b, type: 3}
+  m_Script: {fileID: 11500000, guid: a9e92d6fc0cd3434dbb7d11487dabc32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemPlacement:
@@ -2207,10 +2207,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1520777167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4569cf274a4a43f4588735a48fbbc990, type: 3}
+  m_Script: {fileID: 11500000, guid: 3eb4fee0760618840bdab72024cabb6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
+  playerObject: {fileID: 6261066223369216112, guid: 13e2d82874b174542aa609b4e2c09255,
+    type: 3}
   spawnPoint: {fileID: 626598525}
 --- !u!4 &1520777169
 Transform:

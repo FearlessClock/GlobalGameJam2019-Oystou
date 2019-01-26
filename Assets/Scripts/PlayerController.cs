@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum PlayerState { Moving, FallingBack, FoundObject}
 
@@ -64,14 +65,20 @@ public class PlayerController : MonoBehaviour
 
     public void MovePlayer()
     {
-        if (Input.GetButton("Jump"))
+        if (Input.GetButtonUp("Jump"))
         {
+            Debug.Log("Jump button pressed");
             if (isCarryingItem)
             {
                 // TODO: Make this check if placement is valid
                 isCarryingItem = false;
                 carriedItem.transform.GetChild(0).GetComponent<Collider2D>().enabled = true;
                 carriedItem = null;
+            }
+            else if(isNextToFoyer)
+            {
+                // Enter the foyer
+                EnterTheFoyer();
             }
         }
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -100,6 +107,11 @@ public class PlayerController : MonoBehaviour
         {
             CarryItem(moveDirection);
         }
+    }
+
+    private void EnterTheFoyer()
+    {
+        SceneManager.LoadScene("Foyer");
     }
 
     private void CarryItem(Vector3 dir)
