@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectLoadPositions : MonoBehaviour
 {
-    public MemorableItemManager memorableItemManager;
+    private MemorableItemManager memorableItemManager;
 
     public GameObject[] gates;
 
@@ -13,6 +13,7 @@ public class ObjectLoadPositions : MonoBehaviour
 
     private void Awake()
     {
+        memorableItemManager = FindObjectOfType<MemorableItemManager>();
         playerPosition = FindObjectOfType<PlayerController>().transform;
         foyerPosition = GameObject.FindGameObjectWithTag("Foyer").transform;
         foreach (GameObject item in memorableItemManager.memorableItems)
