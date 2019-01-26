@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour
 
     public bool isCarryingFoyer = false;
 
+    public GameObject dust;
+    public GameObject dustSpawnPos;
+    public float timeBTWDustSpawn;
+    private float currentTimeBTWDustSpawn;
+
     // Player events
     public delegate void ItemMoveDelegate(GameObject item);
     public static event ItemMoveDelegate OnItemCarried;
@@ -44,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        currentTimeBTWDustSpawn = timeBTWDustSpawn;
         anim = gameObject.GetComponent<Animator>();
 
         movementSpeed = normalSpeed;
@@ -183,6 +189,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             anim.SetBool("IsMoving", true);
+            SpawnDust();
         }
         rb.velocity = moveDirection * movementSpeed;
     }
@@ -193,6 +200,16 @@ public class PlayerController : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         return new Vector2(moveX, moveY);
+    }
+
+    private void SpawnDust()
+    {
+        currentTimeBTWDustSpawn -= Time.deltaTime;
+        if (currentTimeBTWDustSpawn <= 0)
+        {
+            currentTimeBTWDustSpawn += timeBTWDustSpawn;
+            Instantiate(dust, dustSpawnPos.transform.position, Quaternion.identity);
+        }
     }
 
     private void TurnPlayer(Vector3 moveDirection)
