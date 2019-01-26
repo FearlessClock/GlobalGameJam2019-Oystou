@@ -270,6 +270,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &135379323
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135379320}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &165177182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -285,12 +306,12 @@ PrefabInstance:
     - target: {fileID: 638140662109641744, guid: feb90cab6ffd5244fabca5ee30c43ebd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.9819703
+      value: -4.9
       objectReference: {fileID: 0}
     - target: {fileID: 638140662109641744, guid: feb90cab6ffd5244fabca5ee30c43ebd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5807692
+      value: -1.22
       objectReference: {fileID: 0}
     - target: {fileID: 638140662109641744, guid: feb90cab6ffd5244fabca5ee30c43ebd,
         type: 3}
@@ -478,12 +499,28 @@ PrefabInstance:
       objectReference: {fileID: 135379320}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e2d82874b174542aa609b4e2c09255, type: 3}
---- !u!4 &355584866 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7425028687989543468, guid: 43a44f1180f6f294d8bd9be9f4169903,
+--- !u!1 &355584862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7425028687989543469, guid: 43a44f1180f6f294d8bd9be9f4169903,
     type: 3}
   m_PrefabInstance: {fileID: 7425028688895215351}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &355584863
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355584862}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.21}
+  serializedVersion: 2
+  m_Radius: 3.79
 --- !u!4 &1162146490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6261066223369216113, guid: 13e2d82874b174542aa609b4e2c09255,
@@ -839,85 +876,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &227169330694092540
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 227169330667135823, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: m_Name
-      value: PowerCable
-      objectReference: {fileID: 0}
-    - target: {fileID: 227169330667135819, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.9874034
-      objectReference: {fileID: 0}
-    - target: {fileID: 227169330667135819, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.0098472
-      objectReference: {fileID: 0}
-    - target: {fileID: 227169330667135819, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.30442405
-      objectReference: {fileID: 0}
-    - target: {fileID: 227169330667135819, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 227169330667135819, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 227169330667135819, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 227169330667135819, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 227169330667135819, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 227169330667135819, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 227169330667135819, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 227169330667135819, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 227169330667135816, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: point1
-      value: 
-      objectReference: {fileID: 135379321}
-    - target: {fileID: 227169330667135816, guid: 5eded01c39e397c4594b54355aa5cba8,
-        type: 3}
-      propertyPath: point2
-      value: 
-      objectReference: {fileID: 355584866}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5eded01c39e397c4594b54355aa5cba8, type: 3}
 --- !u!1001 &7425028688895215351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -930,6 +888,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwitchObject
       objectReference: {fileID: 0}
+    - target: {fileID: 7425028687989543465, guid: 43a44f1180f6f294d8bd9be9f4169903,
+        type: 3}
+      propertyPath: blinker
+      value: 
+      objectReference: {fileID: 4605793861855050773, guid: a51d6f3415e8d694c93ee5248895efe6,
+        type: 3}
+    - target: {fileID: 7425028687989543465, guid: 43a44f1180f6f294d8bd9be9f4169903,
+        type: 3}
+      propertyPath: Foyer
+      value: 
+      objectReference: {fileID: 135379320}
+    - target: {fileID: 7425028687989543465, guid: 43a44f1180f6f294d8bd9be9f4169903,
+        type: 3}
+      propertyPath: powerCableActivator
+      value: 
+      objectReference: {fileID: 355584863}
     - target: {fileID: 7425028687989543468, guid: 43a44f1180f6f294d8bd9be9f4169903,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -985,11 +959,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7425028687989543465, guid: 43a44f1180f6f294d8bd9be9f4169903,
-        type: 3}
-      propertyPath: blinker
-      value: 
-      objectReference: {fileID: 4605793861855050773, guid: a51d6f3415e8d694c93ee5248895efe6,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43a44f1180f6f294d8bd9be9f4169903, type: 3}

@@ -49,6 +49,9 @@ MonoBehaviour:
   ID: 0
   neededItem: {fileID: 11400000, guid: 6f40c04d89c4eaa4d9a1bd439a5b5f86, type: 2}
   switchFoyerMaxDistance: 2
+  blinker: {fileID: 4605793861855050773, guid: a51d6f3415e8d694c93ee5248895efe6, type: 3}
+  powerCable: {fileID: 227169330667135823, guid: 5eded01c39e397c4594b54355aa5cba8,
+    type: 3}
 --- !u!58 &7425028687989543466
 CircleCollider2D:
   m_ObjectHideFlags: 0
