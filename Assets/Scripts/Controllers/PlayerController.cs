@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     public static event ItemMoveDelegate OnItemDropped;
     public static event ItemMoveDelegate OnItemPlacedInFoyer;
 
+    public delegate void EnterFoyerDelegate();
+    public static event EnterFoyerDelegate OnFoyerEnter;
+
     private Animator anim;
 
     void Start()
@@ -210,6 +213,7 @@ public class PlayerController : MonoBehaviour
 
     private void EnterTheFoyer()
     {
+        OnFoyerEnter?.Invoke();
         SceneManager.LoadScene("Foyer");
     }
 
