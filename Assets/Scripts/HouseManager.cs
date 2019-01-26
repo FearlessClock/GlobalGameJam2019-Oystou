@@ -9,7 +9,7 @@ public class HouseManager : MonoBehaviour
     public Transform spawnPoint;
     private void Awake()
     {
-        //GameObject player = Instantiate<GameObject>(playerObject, spawnPoint.position, Quaternion.identity);
+        GameObject player = Instantiate<GameObject>(playerObject, spawnPoint.position, Quaternion.identity);
     }
 
     private void Start()
