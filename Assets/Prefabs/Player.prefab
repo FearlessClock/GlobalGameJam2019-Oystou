@@ -62,6 +62,36 @@ Transform:
   m_Father: {fileID: 6261066223369216113}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &601110515813872288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7769623142008830408}
+  m_Layer: 0
+  m_Name: BubbleSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7769623142008830408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601110515813872288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.99, y: 1.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6261066223369216113}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604185093588763676
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,6 +935,7 @@ Transform:
   - {fileID: 4992285231103844773}
   - {fileID: 3255087817789027723}
   - {fileID: 8721182656651926511}
+  - {fileID: 7769623142008830408}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -933,6 +964,14 @@ MonoBehaviour:
   dust: {fileID: 5824978814441447098, guid: 23fd704d6740427469b331c1847c2c45, type: 3}
   dustSpawnPos: {fileID: 318949224190957479}
   timeBTWDustSpawn: 0.1
+  speechBubble: {fileID: 8741894997621841727, guid: 9202b8e4adb52114ba367593e272ef6b,
+    type: 3}
+  speechBubbleObjects:
+  - {fileID: 11400000, guid: 14d51c054e3dc9948925a590b3fdaa99, type: 2}
+  - {fileID: 11400000, guid: 719574036c70b8c419eff462dc6070f9, type: 2}
+  - {fileID: 11400000, guid: e38349a8e276fff43b872da3118dfcc4, type: 2}
+  bubbleSpawnPos: {fileID: 601110515813872288}
+  hasSpeechBubble: 0
 --- !u!50 &6261066223369216115
 Rigidbody2D:
   serializedVersion: 4
@@ -967,7 +1006,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09, y: 0.15}
+  m_Offset: {x: 0, y: 0.15}
   serializedVersion: 2
   m_Radius: 0.28
 --- !u!95 &6261066223369216117

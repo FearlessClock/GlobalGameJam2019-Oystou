@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class MemorableItemManager : MonoBehaviour
 {
+    public static MemorableItemManager instance;
     public List<GameObject> memorableItems;
-    
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
     private void Start()
     {
         PlayerController.OnItemPlacedInFoyer += OnItemPlacedInFoyer;
@@ -28,5 +37,11 @@ public class MemorableItemManager : MonoBehaviour
         {
             PlayerPrefs.SetInt(PlayerPrefsStrings.itemId + itemController.itemSettings.ID, 1);
         }
+    }
+
+    public bool HasItem(MemorableItem item)
+    {
+        bool hasitem = PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + item.ID) == 0 ? false : true;
+        return hasitem;
     }
 }
