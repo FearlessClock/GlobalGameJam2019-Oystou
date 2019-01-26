@@ -896,7 +896,8 @@ MonoBehaviour:
   normalSpeed: 3
   fallingBackTime: 0.3
   timeToPushFoyer: 0.3
-  carryingDistance: 1.2
+  carryingDistance: 0.9
+  carryOffset: {x: 0, y: 0.5, z: 0}
 --- !u!50 &6261066223369216115
 Rigidbody2D:
   serializedVersion: 4
