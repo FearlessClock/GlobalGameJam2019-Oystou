@@ -8,6 +8,6 @@ public class PlayerPrefsStrings
 {
     public static readonly string foyerPosition     = "foyerPosition";
     public static readonly string itemId            = "item";
-    public static readonly string savePosition      = "itemPosition";
+    public static readonly string itemPosition      = "itemPosition";
     public static readonly string playerPosition    = "playerPosition";
 }
