@@ -13,7 +13,6 @@ public class HouseItemPlacement : MonoBehaviour
         {
             MemorableItem item = itemObj.GetComponent<ItemController>().itemSettings;
             bool hasFound = PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + item.ID, 0) == 1 ? true: false;
-            Debug.Log("Stocl stiff " + item.name);
             if (hasFound)
             {
                 GameObject itemObjIns = Instantiate<GameObject>(item.worldItem, itemPlacement[item.ID].position, Quaternion.identity);

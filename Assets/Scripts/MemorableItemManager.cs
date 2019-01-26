@@ -35,7 +35,6 @@ public class MemorableItemManager : MonoBehaviour
         ItemController itemController = item.GetComponent<ItemController>();
         if (itemController)
         {
-            Debug.Log("Stocl stiff " + item.name);
             PlayerPrefs.SetInt(PlayerPrefsStrings.itemId + itemController.itemSettings.ID, 1);
         }
     }
