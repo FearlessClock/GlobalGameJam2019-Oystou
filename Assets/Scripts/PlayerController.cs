@@ -25,10 +25,12 @@ public class PlayerController : MonoBehaviour
     public int carryingDistance;
 
     private GameObject carriedItem;
-    
+    private Animator anim;
 
     void Start()
     {
+        anim = gameObject.GetComponent<Animator>();
+
         playerState = PlayerState.Moving;
         rb = GetComponent<Rigidbody2D>();
 
@@ -72,6 +74,8 @@ public class PlayerController : MonoBehaviour
             {
                 // TODO: Make this check if placement is valid
                 isCarryingItem = false;
+                anim.SetBool("IsCarrying", isCarryingItem);
+
                 carriedItem.transform.GetChild(0).GetComponent<Collider2D>().enabled = true;
                 carriedItem = null;
             }
@@ -94,6 +98,15 @@ public class PlayerController : MonoBehaviour
         else if(moveX < 0)
         {
             temp.x = -Mathf.Abs(temp.x);
+        }
+
+        if(moveX == 0 && moveY == 0)
+        {
+            anim.SetBool("IsMoving", false);
+        }
+        else
+        {
+            anim.SetBool("IsMoving", true);
         }
 
         transform.localScale = temp;
