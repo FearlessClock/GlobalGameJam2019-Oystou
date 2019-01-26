@@ -12,6 +12,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MomorableItem3
       objectReference: {fileID: 0}
+    - target: {fileID: 4290540087647360129, guid: 9a9efdcee9ef0464db2ac589be3de64c,
+        type: 3}
+      propertyPath: itemSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: cd6d44570ea99994f91d151ad6b81b6f,
+        type: 2}
     - target: {fileID: 4516414099567290597, guid: 9a9efdcee9ef0464db2ac589be3de64c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71,13 +77,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3e833aca0ebcd5642999ca440222a79b,
+      objectReference: {fileID: 21300000, guid: fc1f6f5f7fe1bd040aa5012c21ef7e3c,
         type: 3}
-    - target: {fileID: 4290540087647360129, guid: 9a9efdcee9ef0464db2ac589be3de64c,
-        type: 3}
-      propertyPath: itemSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: cd6d44570ea99994f91d151ad6b81b6f,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a9efdcee9ef0464db2ac589be3de64c, type: 3}
