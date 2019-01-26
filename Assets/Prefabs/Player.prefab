@@ -125,10 +125,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d7817dcc3f9e64eae9d573ff445775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foyer: {fileID: 0}
   playerState: 0
   speed: 6
-  rb: {fileID: 0}
   fallingBackTime: 0.3
+  timeToPushFoyer: 0.3
+  carryingDistance: 1
 --- !u!50 &6261066223369216115
 Rigidbody2D:
   serializedVersion: 4
@@ -137,14 +139,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6261066223369216112}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

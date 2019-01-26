@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,20 +7,43 @@ public enum PlayerState { Moving, FallingBack, FoundObject}
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject foyer;
+
     public PlayerState playerState;
 
-    public float speed;      
-    public Rigidbody2D rb;
+    public float speed;
+    private Rigidbody2D rb;
 
     public float fallingBackTime;
     private float currentFallingBackTime;
+
+    private bool isNextToFoyer;
+    public float timeToPushFoyer;
+    private float pushTimer = 0;
+    private bool isCarryingItem;
+    public int carryingDistance;
+
+    private GameObject carriedItem;
+    
 
     void Start()
     {
         playerState = PlayerState.Moving;
         rb = GetComponent<Rigidbody2D>();
+
+        FoyerPushCollisionController.OnPushTriggerEvent += OnNextToFoyer;
     }
-    
+
+    private void OnDestroy()
+    {
+        FoyerPushCollisionController.OnPushTriggerEvent -= OnNextToFoyer;
+    }
+
+    private void OnNextToFoyer(bool entered)
+    {
+        isNextToFoyer = entered;
+    }
+
     void FixedUpdate()
     {
         switch (playerState)
@@ -40,9 +64,20 @@ public class PlayerController : MonoBehaviour
 
     public void MovePlayer()
     {
+        if (Input.GetButton("Jump"))
+        {
+            if (isCarryingItem)
+            {
+                // TODO: Make this check if placement is valid
+                isCarryingItem = false;
+                carriedItem.transform.GetChild(0).GetComponent<Collider2D>().enabled = true;
+                carriedItem = null;
+            }
+        }
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
+        Vector3 moveDirection = new Vector2(moveX, moveY);
         Vector3 temp = transform.localScale;
 
         if(moveX > 0)
@@ -55,7 +90,57 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.localScale = temp;
-        rb.velocity = new Vector2(moveX, moveY) * speed;
+        rb.velocity = moveDirection * speed;
+        if (!isCarryingItem)
+        {
+            CheckForFoyerCarry(moveDirection);
+        }
+
+        if (isCarryingItem)
+        {
+            CarryItem(moveDirection);
+        }
+    }
+
+    private void CarryItem(Vector3 dir)
+    {
+        if(!(dir.x == 0 && dir.y == 0))
+        {
+            carriedItem.transform.position = this.transform.position + dir.normalized * carryingDistance;
+        }
+    }
+
+    /// <summary>
+    /// Check if the player is walking into the foyer and pick it up
+    /// </summary>
+    /// <param name="moveDirection"></param>
+    private void CheckForFoyerCarry(Vector3 moveDirection)
+    {
+        if (isNextToFoyer)
+        {
+            if (!(moveDirection.x == 0 && moveDirection.y == 0))
+            {
+                // Get the direction to the foyer
+                Vector3 dirToFoyer = (foyer.transform.position - this.transform.position).normalized;
+                float isWalkingToFoyer = Vector3.Dot(dirToFoyer, moveDirection);
+                if (isWalkingToFoyer < 0.5)
+                {
+                    pushTimer = 0;
+                }
+
+                pushTimer += Time.deltaTime;
+                if (pushTimer > timeToPushFoyer)
+                {
+                    isCarryingItem = true;
+                    carriedItem = foyer;
+                    foyer.transform.GetChild(0).GetComponent<Collider2D>().enabled = false;
+                }
+            }
+            else
+            {
+                pushTimer = 0;
+            }
+        }
     }
 
     public void FallBack()
