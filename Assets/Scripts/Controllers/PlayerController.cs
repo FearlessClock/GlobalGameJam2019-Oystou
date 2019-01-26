@@ -307,7 +307,6 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.CompareTag("Water"))
         {
-            Debug.Log("" + collision.name);
             playerState = PlayerState.FallingBack;
             currentFallingBackTime = fallingBackTime;
             rb.velocity *= -0.25f;
