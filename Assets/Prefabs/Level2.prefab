@@ -4635,7 +4635,7 @@ GameObject:
   - component: {fileID: 7659340238069943985}
   m_Layer: 0
   m_Name: buissons
-  m_TagString: Water
+  m_TagString: High grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8524,7 +8524,7 @@ GameObject:
   - component: {fileID: 7389704121521004059}
   m_Layer: 0
   m_Name: Obstacles (4)
-  m_TagString: Water
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

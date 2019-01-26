@@ -323,12 +323,11 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.CompareTag("Water"))
         {
-            Debug.Log("" + memorableItems.Length + memorableItems[(int)SpecialItems.SwimmingMemory]==null);
             if (!MemorableItemManager.instance.HasItem(memorableItems[(int)SpecialItems.SwimmingMemory]))
             {
                 playerState = PlayerState.FallingBack;
                 currentFallingBackTime = fallingBackTime;
-                rb.velocity *= -0.25f;
+                rb.velocity *= -0.6f;
 
                 if (!hasSpeechBubble)
                 {
