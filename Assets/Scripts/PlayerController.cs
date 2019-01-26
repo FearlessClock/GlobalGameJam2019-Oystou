@@ -130,6 +130,7 @@ public class PlayerController : MonoBehaviour
     {
         isCarryingFoyer = false;   // No need to check, what ever we were carrying, right now we are not carrying anything
         isCarryingItem = false;
+        anim.SetBool("IsCarrying", isCarryingItem);
         OnItemDropped?.Invoke(carriedItem);
         carriedItem = null;
         movementSpeed = normalSpeed;
