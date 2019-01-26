@@ -12,6 +12,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MomorableItem1
       objectReference: {fileID: 0}
+    - target: {fileID: 4290540087647360129, guid: 9a9efdcee9ef0464db2ac589be3de64c,
+        type: 3}
+      propertyPath: itemSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 6f40c04d89c4eaa4d9a1bd439a5b5f86,
+        type: 2}
     - target: {fileID: 4516414099567290597, guid: 9a9efdcee9ef0464db2ac589be3de64c,
         type: 3}
       propertyPath: m_LocalPosition.x

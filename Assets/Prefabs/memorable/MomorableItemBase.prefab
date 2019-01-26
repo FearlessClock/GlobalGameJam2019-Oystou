@@ -73,20 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfce59c9bf2a94041baf269e2ef9b297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSettings: {fileID: 11400000, guid: 6f40c04d89c4eaa4d9a1bd439a5b5f86, type: 2}
---- !u!114 &1317990448660719781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6051120635274291987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 583dc192bcb7c0040836490a2c011433, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  partSys: {fileID: 5896763331111508488}
+  itemSettings: {fileID: 0}
 --- !u!1 &8888007643797597820
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,8 +139,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -210393251
-  m_SortingLayer: 1
+  m_SortingLayerID: -1696995853
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 1b9ffae206712424a8567d70fd65fc9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

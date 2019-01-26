@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7425028687989543469}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.55, y: -2.83, z: -0.20036678}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.95586, y: 0.95586, z: 0.95586}
   m_Children:
   - {fileID: 7425028688731224521}
   m_Father: {fileID: 0}
@@ -49,9 +49,11 @@ MonoBehaviour:
   ID: 0
   neededItem: {fileID: 11400000, guid: 6f40c04d89c4eaa4d9a1bd439a5b5f86, type: 2}
   switchFoyerMaxDistance: 2
+  foyer: {fileID: 0}
   blinker: {fileID: 4605793861855050773, guid: a51d6f3415e8d694c93ee5248895efe6, type: 3}
   powerCable: {fileID: 227169330667135823, guid: 5eded01c39e397c4594b54355aa5cba8,
     type: 3}
+  powerCableActivator: {fileID: 0}
 --- !u!58 &7425028687989543466
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -109,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 7425028688731224522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.039812, y: 4.039812, z: 4.039812}
   m_Children: []
   m_Father: {fileID: 7425028687989543468}
   m_RootOrder: 0
@@ -151,7 +153,7 @@ SpriteRenderer:
   m_SortingLayerID: -1696995853
   m_SortingLayer: 2
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: ffab82feb99718348a035248814da854, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 723ccb3b87e2ea8438725bee3806c829, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
