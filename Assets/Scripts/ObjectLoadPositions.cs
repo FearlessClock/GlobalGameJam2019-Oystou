@@ -24,15 +24,14 @@ public class ObjectLoadPositions : MonoBehaviour
                 string ppString = PlayerPrefsStrings.itemPosition + itemController.itemSettings.ID;
                 if (PlayerPrefs.HasKey(ppString))
                 {
-                    Debug.Log("Has string");
                     SavePositionInformation position = JsonUtility.FromJson<SavePositionInformation>(PlayerPrefs.GetString(ppString, "{x:0, y:0, active: true}"));
-                    if (position.active)
+                    if (PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + itemController.itemSettings.ID, 0) == 0)
                     {
                         item.transform.position = new Vector3(position.x, position.y);
                     }
                     else
                     {
-                        memorableItemManager.memorableItems.Remove(item);   // Remove items that are not used anymore when they aren't active to save calculation time
+                        Destroy(item);
                     }
                 }
             }
@@ -100,14 +99,8 @@ public class ObjectLoadPositions : MonoBehaviour
                 savePositionInformation.x = item.transform.position.x;
                 savePositionInformation.y = item.transform.position.y;
                 savePositionInformation.active = true;
+                PlayerPrefs.SetString(PlayerPrefsStrings.itemPosition + item.GetComponent<ItemController>().itemSettings.ID, JsonUtility.ToJson(savePositionInformation));
             }
-            else
-            {
-                savePositionInformation.x = 0;
-                savePositionInformation.y = 0;
-                savePositionInformation.active = false;
-            }
-            PlayerPrefs.SetString(PlayerPrefsStrings.itemPosition + item.GetComponent<ItemController>().itemSettings.ID, JsonUtility.ToJson(savePositionInformation));
         }
 
         for (int i = 0; i < gates.Length; i++)
