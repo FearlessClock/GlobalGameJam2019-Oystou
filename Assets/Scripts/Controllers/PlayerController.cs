@@ -4,10 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum SpecialItems { SwimmingMemory = 6, ClimbingMemory = 7, WalkingStick = 8}
 public enum PlayerState { Moving, FallingBack, FoundObject, CarryItem}
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     public GameObject foyer;
 
     public PlayerState playerState;
@@ -43,9 +46,18 @@ public class PlayerController : MonoBehaviour
     public static event ItemMoveDelegate OnItemPlacedInFoyer;
 
     private Animator anim;
+    public GameObject speechBubble;
+    public SpeechBubble[] speechBubbleObjects;
+    public GameObject bubbleSpawnPos;
+    public bool hasSpeechBubble = false;
 
     void Start()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+
         currentTimeBTWDustSpawn = timeBTWDustSpawn;
         anim = gameObject.GetComponent<Animator>();
 
@@ -310,6 +322,33 @@ public class PlayerController : MonoBehaviour
             playerState = PlayerState.FallingBack;
             currentFallingBackTime = fallingBackTime;
             rb.velocity *= -0.25f;
+
+            if(!hasSpeechBubble)
+            {
+                PopSpeechBubble(0);
+            }
         }
+        else if(collision.CompareTag("Mountain"))
+        {
+            if (!hasSpeechBubble)
+            {
+                PopSpeechBubble(1);
+            }
+        }
+        else if (collision.CompareTag("High grass"))
+        {
+            if (!hasSpeechBubble)
+            {
+                PopSpeechBubble(2);
+            }
+        }
+    }
+
+    public void PopSpeechBubble(int id)
+    {
+        GameObject bubble = Instantiate(speechBubble, bubbleSpawnPos.transform.position, Quaternion.identity);
+        bubble.transform.GetChild(0).GetComponent<SpeechBubbleController>().SetBubble(speechBubbleObjects[id]);
+        bubble.transform.parent = transform;
+        hasSpeechBubble = true;
     }
 }

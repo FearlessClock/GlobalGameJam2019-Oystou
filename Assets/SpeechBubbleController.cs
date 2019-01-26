@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class SpeechBubbleController : MonoBehaviour
 {
-    
-    public SpeechBubble bubbleObject;
-
-    void Start()
+    public void SetBubble(SpeechBubble item)
     {
-        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = bubbleObject.objectPhoto;
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = item.objectPhoto;
+        StartCoroutine(DestroyBubble());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator DestroyBubble()
     {
-        
+        yield return new WaitForSeconds(2f);
+        gameObject.GetComponent<Animator>().SetTrigger("Destroy");
+    }
+
+    public void Destroy()
+    {
+        PlayerController.instance.hasSpeechBubble = false;
+        Destroy(transform.parent.gameObject, 0.1f);
     }
 }

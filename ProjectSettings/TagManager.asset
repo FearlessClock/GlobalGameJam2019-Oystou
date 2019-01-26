@@ -8,6 +8,8 @@ TagManager:
   - Water
   - Foyer
   - MemorableItem
+  - High grass
+  - Mountain
   layers:
   - Default
   - TransparentFX
