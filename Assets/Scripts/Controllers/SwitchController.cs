@@ -103,6 +103,14 @@ public class SwitchController : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Foyer"))
+        {
+            OnCloseToSwitch?.Invoke(ID, true);
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Foyer"))

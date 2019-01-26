@@ -13,6 +13,11 @@ public class GateController : MonoBehaviour
         connectedSwitch.OnSwitchActivated += OnSwitchActivated;
     }
 
+    private void OnDestroy()
+    {
+        connectedSwitch.OnSwitchActivated -= OnSwitchActivated;
+    }
+
     private void OnSwitchActivated(int ID)
     {
         OpenDoor();
@@ -20,7 +25,10 @@ public class GateController : MonoBehaviour
 
     public void OpenDoor()
     {
-        animator.SetTrigger("Open");
-        isOpen = true;
+        if(animator != null)
+        {
+            animator.SetTrigger("Open");
+            isOpen = true;
+        }
     }
 }
