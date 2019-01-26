@@ -5,15 +5,18 @@ using UnityEngine;
 public class HouseItemPlacement : MonoBehaviour
 {
     public Transform[] itemPlacement;
-    public MemorableItem[] items;
+    private MemorableItemManager memorableItemManager;
     private void Awake()
     {
-        foreach (MemorableItem item in items)
+        memorableItemManager = MemorableItemManager.instance;
+        foreach (GameObject itemObj in memorableItemManager.memorableItems)
         {
+            MemorableItem item = itemObj.GetComponent<ItemController>().itemSettings;
             bool hasFound = PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + item.ID, 0) == 1 ? true: false;
+            Debug.Log("Stocl stiff " + item.name);
             if (hasFound)
             {
-                GameObject itemObj = Instantiate<GameObject>(item.worldItem, itemPlacement[item.ID].position, Quaternion.identity);
+                GameObject itemObjIns = Instantiate<GameObject>(item.worldItem, itemPlacement[item.ID].position, Quaternion.identity);
             }
         }
     }
