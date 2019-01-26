@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318949224190957479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: -0.09, z: 0}
+  m_LocalPosition: {x: -0.088, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6261066223369216113}
@@ -929,6 +929,10 @@ MonoBehaviour:
   timeToPushFoyer: 0.3
   carryingDistance: 0.9
   carryOffset: {x: 0, y: 0.5, z: 0}
+  isCarryingFoyer: 0
+  dust: {fileID: 5824978814441447098, guid: 23fd704d6740427469b331c1847c2c45, type: 3}
+  dustSpawnPos: {fileID: 318949224190957479}
+  timeBTWDustSpawn: 0.1
 --- !u!50 &6261066223369216115
 Rigidbody2D:
   serializedVersion: 4

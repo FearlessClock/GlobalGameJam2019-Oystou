@@ -6594,14 +6594,13 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2522948547223094012, guid: 122aff67deb5e3d40be827947200ba87,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 122aff67deb5e3d40be827947200ba87, type: 3}
---- !u!1 &318949224190957479 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 318949224190957479, guid: 13e2d82874b174542aa609b4e2c09255,
-    type: 3}
-  m_PrefabInstance: {fileID: 6261066224003455528}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6261066224003455528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6668,32 +6667,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6261066223369216114, guid: 13e2d82874b174542aa609b4e2c09255,
-        type: 3}
-      propertyPath: dustSpawnPos
-      value: 
-      objectReference: {fileID: 318949224190957479}
-    - target: {fileID: 6261066223369216114, guid: 13e2d82874b174542aa609b4e2c09255,
-        type: 3}
-      propertyPath: dust
-      value: 
-      objectReference: {fileID: 5824978814441447098, guid: 23fd704d6740427469b331c1847c2c45,
-        type: 3}
-    - target: {fileID: 6261066223369216114, guid: 13e2d82874b174542aa609b4e2c09255,
-        type: 3}
-      propertyPath: timeBTWDustSpawn
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8721182656651926511, guid: 13e2d82874b174542aa609b4e2c09255,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.088
-      objectReference: {fileID: 0}
-    - target: {fileID: 8721182656651926511, guid: 13e2d82874b174542aa609b4e2c09255,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e2d82874b174542aa609b4e2c09255, type: 3}
