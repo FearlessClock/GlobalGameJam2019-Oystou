@@ -127,10 +127,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foyer: {fileID: 0}
   playerState: 0
-  speed: 6
+  movementSpeed: 0
+  carrySpeed: 4
+  normalSpeed: 6
   fallingBackTime: 0.3
   timeToPushFoyer: 0.3
-  carryingDistance: 1
+  carryingDistance: 1.2
 --- !u!50 &6261066223369216115
 Rigidbody2D:
   serializedVersion: 4
