@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SpeechBubbleController : MonoBehaviour
 {
-    public void SetBubble(SpeechBubble item)
+    public void SetBubble(MemorableItem item)
     {
-        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = item.objectPhoto;
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = item.worldItem.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
         StartCoroutine(DestroyBubble());
     }
 

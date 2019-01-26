@@ -10,6 +10,7 @@ public enum PlayerState { Moving, FallingBack, FoundObject, CarryItem}
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
+    public MemorableItem[] memorableItems;
 
     public GameObject foyer;
 
@@ -50,7 +51,6 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
     public GameObject speechBubble;
-    public SpeechBubble[] speechBubbleObjects;
     public GameObject bubbleSpawnPos;
     public bool hasSpeechBubble = false;
 
@@ -323,27 +323,37 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.CompareTag("Water"))
         {
-            playerState = PlayerState.FallingBack;
-            currentFallingBackTime = fallingBackTime;
-            rb.velocity *= -0.25f;
-
-            if(!hasSpeechBubble)
+            Debug.Log("" + memorableItems.Length + memorableItems[(int)SpecialItems.SwimmingMemory]==null);
+            if (!MemorableItemManager.instance.HasItem(memorableItems[(int)SpecialItems.SwimmingMemory]))
             {
-                PopSpeechBubble(0);
+                playerState = PlayerState.FallingBack;
+                currentFallingBackTime = fallingBackTime;
+                rb.velocity *= -0.25f;
+
+                if (!hasSpeechBubble)
+                {
+                    PopSpeechBubble(0);
+                }
             }
         }
         else if(collision.CompareTag("Mountain"))
         {
-            if (!hasSpeechBubble)
+            if (!MemorableItemManager.instance.HasItem(memorableItems[(int)SpecialItems.ClimbingMemory]))
             {
-                PopSpeechBubble(1);
+                if (!hasSpeechBubble)
+                {
+                    PopSpeechBubble(1);
+                }
             }
         }
         else if (collision.CompareTag("High grass"))
         {
-            if (!hasSpeechBubble)
+            if (!MemorableItemManager.instance.HasItem(memorableItems[(int)SpecialItems.WalkingStick]))
             {
-                PopSpeechBubble(2);
+                if (!hasSpeechBubble)
+                {
+                    PopSpeechBubble(2);
+                }
             }
         }
     }
@@ -351,7 +361,7 @@ public class PlayerController : MonoBehaviour
     public void PopSpeechBubble(int id)
     {
         GameObject bubble = Instantiate(speechBubble, bubbleSpawnPos.transform.position, Quaternion.identity);
-        bubble.transform.GetChild(0).GetComponent<SpeechBubbleController>().SetBubble(speechBubbleObjects[id]);
+        bubble.transform.GetChild(0).GetComponent<SpeechBubbleController>().SetBubble(memorableItems[id]);
         bubble.transform.parent = transform;
         hasSpeechBubble = true;
     }

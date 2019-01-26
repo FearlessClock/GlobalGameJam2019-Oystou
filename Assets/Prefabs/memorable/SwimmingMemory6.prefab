@@ -10,8 +10,14 @@ PrefabInstance:
     - target: {fileID: 6051120635274291987, guid: 9a9efdcee9ef0464db2ac589be3de64c,
         type: 3}
       propertyPath: m_Name
-      value: MomorableItem1
+      value: SwimmingMemory6
       objectReference: {fileID: 0}
+    - target: {fileID: 4290540087647360129, guid: 9a9efdcee9ef0464db2ac589be3de64c,
+        type: 3}
+      propertyPath: itemSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: f7d650b3f29e4634893a9951342ab20a,
+        type: 2}
     - target: {fileID: 4516414099567290597, guid: 9a9efdcee9ef0464db2ac589be3de64c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,11 +73,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4290540087647360129, guid: 9a9efdcee9ef0464db2ac589be3de64c,
-        type: 3}
-      propertyPath: itemSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 6f40c04d89c4eaa4d9a1bd439a5b5f86,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a9efdcee9ef0464db2ac589be3de64c, type: 3}
