@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public float carryingDistance;
 
     private GameObject carriedItem;
+    public Vector3 carryOffset;
 
     bool isCarryingFoyer = false;
 
@@ -104,6 +105,10 @@ public class PlayerController : MonoBehaviour
             else if (isCarryingItem)
             {
                 // TODO: Make this check if placement is valid
+                if (isCarryingFoyer)
+                {
+                    foyer.GetComponent<Collider2D>().enabled = true;
+                }
                 DropItem();
                 SetStateTo(PlayerState.Moving);
             }
@@ -216,7 +221,12 @@ public class PlayerController : MonoBehaviour
     {
         if(!(dir.x == 0 && dir.y == 0))
         {
-            carriedItem.transform.position = this.transform.position + dir.normalized * carryingDistance;
+            dir.y = 0;
+            if(dir.x == 0)
+            {
+                dir.x = this.transform.localScale.x;
+            }
+            carriedItem.transform.position = this.transform.position + carryOffset + dir.normalized * carryingDistance;
         }
     }
 
@@ -245,6 +255,7 @@ public class PlayerController : MonoBehaviour
 
                     pushTimer = 0;
                     isCarryingFoyer = true;
+                    foyer.GetComponent<Collider2D>().enabled = false;
                     PickUpItem(foyer);
                     SetStateTo(PlayerState.CarryItem);
                 }
