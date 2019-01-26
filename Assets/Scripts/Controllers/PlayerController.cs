@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private GameObject carriedItem;
     public Vector3 carryOffset;
 
-    bool isCarryingFoyer = false;
+    public bool isCarryingFoyer = false;
 
     public GameObject dust;
     public GameObject dustSpawnPos;

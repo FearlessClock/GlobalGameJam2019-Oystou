@@ -15,7 +15,8 @@ public class SwitchController : MonoBehaviour
     public MemorableItem neededItem;
     public float switchFoyerMaxDistance;
 
-    public GameObject Foyer;
+    public GameObject foyer;
+    private PlayerController playerController;
     public GameObject blinker;
     public GameObject powerCable;
 
@@ -24,6 +25,7 @@ public class SwitchController : MonoBehaviour
     private int checkCounter = 0;
     private void Start()
     {
+        playerController = FindObjectOfType<PlayerController>();
         hasItemFound = PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + neededItem.ID, 0) == 0? false: true;
         if (hasItemFound)
         {
@@ -34,15 +36,13 @@ public class SwitchController : MonoBehaviour
             ParticleLinePlacer particleLinePlacer = powerCableIns.GetComponent<ParticleLinePlacer>();
             particleLinePlacer.activeSwitch = this;
             particleLinePlacer.point1 = this.transform;
-            particleLinePlacer.point2 = Foyer.transform;
+            particleLinePlacer.point2 = foyer.transform;
             PlayerController.OnItemPlacedInFoyer += OnItemPlacedInFoyer;
             Collider2D[] hits = Physics2D.OverlapCircleAll(this.transform.position, powerCableActivator.radius);
-            Debug.Log(hits.Length);
             if (hits != null && hits.Length > 0)
             {
                 foreach (Collider2D hit in hits)
                 {
-                    Debug.Log(hit.name);
                     if (hit.CompareTag("Foyer"))
                     {
                         particleLinePlacer.parts.Play();
@@ -85,10 +85,10 @@ public class SwitchController : MonoBehaviour
             Collider2D[] overlapHits = Physics2D.OverlapCircleAll(this.transform.position, switchFoyerMaxDistance);
             foreach (Collider2D hit in overlapHits)
             {
-                if (hit.CompareTag("Foyer"))
+                if (hit.CompareTag("Foyer") && !playerController.isCarryingFoyer)
                 {
-                    OnSwitchActivated?.Invoke(ID);
-                    
+                    ActivateSwitch();
+
                     hasActivatedMechanisme = true;
                 }
             }
