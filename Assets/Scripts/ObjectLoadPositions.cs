@@ -6,6 +6,8 @@ public class ObjectLoadPositions : MonoBehaviour
 {
     public MemorableItemManager memorableItemManager;
 
+    public GameObject[] gates;
+
     private Transform playerPosition;
     private Transform foyerPosition;
 
@@ -46,6 +48,14 @@ public class ObjectLoadPositions : MonoBehaviour
             {
                 SavePositionInformation foyerInformation = JsonUtility.FromJson<SavePositionInformation>(PlayerPrefs.GetString(PlayerPrefsStrings.foyerPosition));
                 foyerPosition.position = new Vector3(foyerInformation.x, foyerInformation.y);
+            }
+
+            for (int i = 0; i < gates.Length; i++)
+            {
+                if (PlayerPrefs.GetInt(PlayerPrefsStrings.gatePosition + i, 0) == 1)
+                {
+                    gates[i].GetComponent<GateController>().OpenDoor();
+                }
             }
         }
     }
@@ -97,6 +107,14 @@ public class ObjectLoadPositions : MonoBehaviour
                 savePositionInformation.active = false;
             }
             PlayerPrefs.SetString(PlayerPrefsStrings.itemPosition + item.GetComponent<ItemController>().itemSettings.ID, JsonUtility.ToJson(savePositionInformation));
+        }
+
+        for (int i = 0; i < gates.Length; i++)
+        {
+            if(gates[i].GetComponent<GateController>().isOpen)
+            {
+                PlayerPrefs.SetInt(PlayerPrefsStrings.gatePosition + i, 1);
+            }
         }
     }
 }
