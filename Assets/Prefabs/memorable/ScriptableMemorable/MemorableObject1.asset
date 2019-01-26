@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MemorableObject1
   m_EditorClassIdentifier: 
   ID: 0
-  worldItem: {fileID: 5975684720333155941, guid: d6a58504a84aae2448c2b4c8cfc298d3,
+  worldItem: {fileID: 8925922042454642252, guid: 252e0bc94c4e8194f8de0dd22dddc3de,
     type: 3}

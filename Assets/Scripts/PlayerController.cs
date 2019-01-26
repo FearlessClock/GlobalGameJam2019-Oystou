@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum PlayerState { Moving, FallingBack, FoundObject}
+public enum PlayerState { Moving, FallingBack, FoundObject, CarryItem}
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour
 
     public PlayerState playerState;
 
-    public float speed;
+    public float movementSpeed;
+    public float carrySpeed;
+    public float normalSpeed;
     private Rigidbody2D rb;
 
     public float fallingBackTime;
@@ -22,24 +24,36 @@ public class PlayerController : MonoBehaviour
     public float timeToPushFoyer;
     private float pushTimer = 0;
     private bool isCarryingItem;
-    public int carryingDistance;
+    public float carryingDistance;
 
     private GameObject carriedItem;
+
+    bool isCarryingFoyer = false;
+
+    // Player events
+    public delegate void ItemMoveDelegate(GameObject item);
+    public static event ItemMoveDelegate OnItemCarried;
+    public static event ItemMoveDelegate OnItemDropped;
+    public static event ItemMoveDelegate OnItemPlacedInFoyer;
+
     private Animator anim;
 
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
 
+        movementSpeed = normalSpeed;
         playerState = PlayerState.Moving;
         rb = GetComponent<Rigidbody2D>();
 
         FoyerPushCollisionController.OnPushTriggerEvent += OnNextToFoyer;
+        ItemController.OnItemPickedUp += OnMemorableItemPickedUp;
     }
 
     private void OnDestroy()
     {
         FoyerPushCollisionController.OnPushTriggerEvent -= OnNextToFoyer;
+        ItemController.OnItemPickedUp -= OnMemorableItemPickedUp;
     }
 
     private void OnNextToFoyer(bool entered)
@@ -52,69 +66,52 @@ public class PlayerController : MonoBehaviour
         switch (playerState)
         {
             case PlayerState.Moving:
-                MovePlayer();
+                PlayerMovingState();
                 break;
             case PlayerState.FallingBack:
-                FallBack();
+                FallBackState();
                 break;
             case PlayerState.FoundObject:
-                FoundObject();
+                FoundObjectState();
+                break;
+            case PlayerState.CarryItem:
+                CarryingItemState();
                 break;
             default:
                 break;
         }
     }
 
-    public void MovePlayer()
+    private void SetStateTo(PlayerState nextState)
+    {
+        playerState = nextState;
+    }
+
+    private void CarryingItemState()
     {
         if (Input.GetButtonUp("Jump"))
         {
-            Debug.Log("Jump button pressed");
-            if (isCarryingItem)
+            if(!isCarryingFoyer && isNextToFoyer && isCarryingItem)
             {
-                // TODO: Make this check if placement is valid
-                isCarryingItem = false;
-                anim.SetBool("IsCarrying", isCarryingItem);
-
-                carriedItem.transform.GetChild(0).GetComponent<Collider2D>().enabled = true;
-                carriedItem = null;
-            }
-            else if(isNextToFoyer)
-            {
-                // Enter the foyer
+                //Place the item in the house
+                GameObject item = carriedItem;
+                DropItem();
+                OnItemPlacedInFoyer?.Invoke(item);
+                SetStateTo(PlayerState.Moving);
+                Destroy(item);
                 EnterTheFoyer();
             }
-        }
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-
-        Vector3 moveDirection = new Vector2(moveX, moveY);
-        Vector3 temp = transform.localScale;
-
-        if(moveX > 0)
-        {
-            temp.x = Mathf.Abs(temp.x);
-        }
-        else if(moveX < 0)
-        {
-            temp.x = -Mathf.Abs(temp.x);
+            else if (isCarryingItem)
+            {
+                // TODO: Make this check if placement is valid
+                DropItem();
+                SetStateTo(PlayerState.Moving);
+            }
         }
 
-        if(moveX == 0 && moveY == 0)
-        {
-            anim.SetBool("IsMoving", false);
-        }
-        else
-        {
-            anim.SetBool("IsMoving", true);
-        }
-
-        transform.localScale = temp;
-        rb.velocity = moveDirection * speed;
-        if (!isCarryingItem)
-        {
-            CheckForFoyerCarry(moveDirection);
-        }
+        Vector3 moveDirection = GetMoveDirection();
+        TurnPlayer(moveDirection);
+        MovePlayer(moveDirection);
 
         if (isCarryingItem)
         {
@@ -122,11 +119,98 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    private void OnMemorableItemPickedUp(GameObject pickedUpItem)
+    {
+        SetStateTo(PlayerState.CarryItem);
+        PickUpItem(pickedUpItem);
+    }
+
+    private void DropItem()
+    {
+        isCarryingFoyer = false;   // No need to check, what ever we were carrying, right now we are not carrying anything
+        isCarryingItem = false;
+        OnItemDropped?.Invoke(carriedItem);
+        carriedItem = null;
+        movementSpeed = normalSpeed;
+    }
+
+    private void PickUpItem(GameObject pickedUpItem)
+    {
+        carriedItem = pickedUpItem;
+        isCarryingItem = true;
+        anim.SetBool("IsCarrying", isCarryingItem);
+        movementSpeed = carrySpeed;
+        OnItemCarried?.Invoke(pickedUpItem);
+    }
+
+    public void PlayerMovingState()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+           if (isNextToFoyer)
+            {
+                // Enter the foyer
+                EnterTheFoyer();
+            }
+        }
+
+        Vector3 moveDirection = GetMoveDirection();
+        TurnPlayer(moveDirection);
+        MovePlayer(moveDirection);
+
+        if (!isCarryingItem)
+        {
+            CheckForFoyerCarry(moveDirection);
+        }
+    }
+
+    private void MovePlayer(Vector3 moveDirection)
+    {
+        if(moveDirection.x == 0 && moveDirection.y == 0)
+        {
+            anim.SetBool("IsMoving", false);
+        }
+        else
+        {
+            anim.SetBool("IsMoving", true);
+        }
+        rb.velocity = moveDirection * movementSpeed;
+    }
+
+    private Vector3 GetMoveDirection()
+    {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        return new Vector2(moveX, moveY);
+    }
+
+    private void TurnPlayer(Vector3 moveDirection)
+    {
+        Vector3 temp = transform.localScale;
+
+        if (moveDirection.x > 0)
+        {
+            temp.x = Mathf.Abs(temp.x);
+        }
+        else if (moveDirection.x < 0)
+        {
+            temp.x = -Mathf.Abs(temp.x);
+        }
+
+        transform.localScale = temp;
+    }
+
     private void EnterTheFoyer()
     {
         SceneManager.LoadScene("Foyer");
     }
 
+    /// <summary>
+    /// Place the item in front of the player when carrying the item
+    /// </summary>
+    /// <param name="dir"></param>
     private void CarryItem(Vector3 dir)
     {
         if(!(dir.x == 0 && dir.y == 0))
@@ -156,9 +240,12 @@ public class PlayerController : MonoBehaviour
                 pushTimer += Time.deltaTime;
                 if (pushTimer > timeToPushFoyer)
                 {
-                    isCarryingItem = true;
-                    carriedItem = foyer;
-                    foyer.transform.GetChild(0).GetComponent<Collider2D>().enabled = false;
+                    // Pick up the foyer and move to the carrying state
+
+                    pushTimer = 0;
+                    isCarryingFoyer = true;
+                    PickUpItem(foyer);
+                    SetStateTo(PlayerState.CarryItem);
                 }
             }
             else
@@ -168,7 +255,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void FallBack()
+    public void FallBackState()
     {
         currentFallingBackTime -= Time.deltaTime;
 
@@ -182,7 +269,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void FoundObject()
+    public void FoundObjectState()
     {
         
     }
