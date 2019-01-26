@@ -7,13 +7,19 @@ public class SwitchController : MonoBehaviour
     public delegate void SwitchDelegate(int ID);
     public event SwitchDelegate OnSwitchActivated;
     public event SwitchDelegate OnSwitchItemFound;
+    public delegate void SwitchCloseDelegate(int ID, bool enter);
+    public event SwitchCloseDelegate OnCloseToSwitch;
     public int ID;
     private bool hasActivatedMechanisme = false;
     private bool hasItemFound = false;
     public MemorableItem neededItem;
     public float switchFoyerMaxDistance;
 
+    public GameObject Foyer;
     public GameObject blinker;
+    public GameObject powerCable;
+
+    public CircleCollider2D powerCableActivator;
 
     private int checkCounter = 0;
     private void Start()
@@ -23,8 +29,27 @@ public class SwitchController : MonoBehaviour
         {
             GameObject blink = Instantiate<GameObject>(blinker, this.transform);
             blink.GetComponent<SwitchLightController>().switchBlinker = this.GetComponent<SwitchBlinker>();
+
+            GameObject powerCableIns = Instantiate<GameObject>(powerCable);
+            ParticleLinePlacer particleLinePlacer = powerCableIns.GetComponent<ParticleLinePlacer>();
+            particleLinePlacer.activeSwitch = this;
+            particleLinePlacer.point1 = this.transform;
+            particleLinePlacer.point2 = Foyer.transform;
+            PlayerController.OnItemPlacedInFoyer += OnItemPlacedInFoyer;
+            Collider2D[] hits = Physics2D.OverlapCircleAll(this.transform.position, powerCableActivator.radius);
+            Debug.Log(hits.Length);
+            if (hits != null && hits.Length > 0)
+            {
+                foreach (Collider2D hit in hits)
+                {
+                    Debug.Log(hit.name);
+                    if (hit.CompareTag("Foyer"))
+                    {
+                        particleLinePlacer.parts.Play();
+                    }
+                }
+            }
         }
-        PlayerController.OnItemPlacedInFoyer += OnItemPlacedInFoyer;
     }
 
     private void OnDestroy()
@@ -70,8 +95,19 @@ public class SwitchController : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Gizmos.DrawWireSphere(this.transform.position, switchFoyerMaxDistance);
+        if (collision.CompareTag("Foyer"))
+        {
+            OnCloseToSwitch?.Invoke(ID, true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Foyer"))
+        {
+            OnCloseToSwitch?.Invoke(ID, false);
+        }
     }
 }

@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
                 // TODO: Make this check if placement is valid
                 if (isCarryingFoyer)
                 {
-                    foyer.GetComponent<Collider2D>().enabled = true;
+                    foyer.GetComponent<Collider2D>().isTrigger = false;
                 }
                 DropItem();
                 SetStateTo(PlayerState.Moving);
@@ -272,7 +272,7 @@ public class PlayerController : MonoBehaviour
 
                     pushTimer = 0;
                     isCarryingFoyer = true;
-                    foyer.GetComponent<Collider2D>().enabled = false;
+                    foyer.GetComponent<Collider2D>().isTrigger = true;
                     PickUpItem(foyer);
                     SetStateTo(PlayerState.CarryItem);
                 }
