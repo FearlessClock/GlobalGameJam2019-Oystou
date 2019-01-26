@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4c5e3a61156734599c3e4e9c30d409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placedSprite: {fileID: 21300000, guid: 595c51a7e9a0c4f448b239c9549fb9bb, type: 3}
-  pickedUpSprite: {fileID: 21300000, guid: 4639a956872e6774eb8ce648d511c6fb, type: 3}
+  placedSprite: {fileID: 21300000, guid: ea99a9fdb254ad047b965f778962f5a9, type: 3}
+  pickedUpSprite: {fileID: 21300000, guid: f04c82a51c12b8f4292495358a7e5c71, type: 3}
   spriteRenderer: {fileID: 638140663118317755}
 --- !u!198 &8997250288740123990
 ParticleSystem:
@@ -4970,7 +4970,7 @@ SpriteRenderer:
   m_SortingLayerID: -1696995853
   m_SortingLayer: 2
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 595c51a7e9a0c4f448b239c9549fb9bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea99a9fdb254ad047b965f778962f5a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

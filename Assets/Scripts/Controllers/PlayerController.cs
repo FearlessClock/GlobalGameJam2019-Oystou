@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum SpecialItems { SwimmingMemory = 6, ClimbingMemory = 7, WalkingStick = 8}
 public enum PlayerState { Moving, FallingBack, FoundObject, CarryItem}
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
-    public MemorableItem[] memorableItems;
 
     public GameObject foyer;
 
@@ -318,49 +316,58 @@ public class PlayerController : MonoBehaviour
     {
         
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.CompareTag("Water"))
-        {
-            if (!MemorableItemManager.instance.HasItem(memorableItems[(int)SpecialItems.SwimmingMemory]))
-            {
-                playerState = PlayerState.FallingBack;
-                currentFallingBackTime = fallingBackTime;
-                rb.velocity *= -0.6f;
+        Debug.Log(collision.collider.name);
+        MemorableHolder memoHolder = collision.collider.GetComponent<MemorableHolder>();
 
-                if (!hasSpeechBubble)
+        if (memoHolder) {
+            MemorableItem item = memoHolder.memorableItem;
+            if (collision.collider.CompareTag("Water"))
+            {
+                if (!MemorableItemManager.instance.ItemFound(item))
                 {
-                    PopSpeechBubble(0);
+                    playerState = PlayerState.FallingBack;
+                    currentFallingBackTime = fallingBackTime;
+                    rb.velocity *= -0.6f;
+
+                    if (!hasSpeechBubble)
+                    {
+                        PopSpeechBubble(item);
+                    }
                 }
             }
-        }
-        else if(collision.CompareTag("Mountain"))
-        {
-            if (!MemorableItemManager.instance.HasItem(memorableItems[(int)SpecialItems.ClimbingMemory]))
+            else if(collision.collider.CompareTag("Mountain"))
             {
-                if (!hasSpeechBubble)
+                if (!MemorableItemManager.instance.ItemFound(item))
                 {
-                    PopSpeechBubble(1);
+                    if (!hasSpeechBubble)
+                    {
+                        PopSpeechBubble(item);
+                    }
                 }
             }
-        }
-        else if (collision.CompareTag("High grass"))
-        {
-            if (!MemorableItemManager.instance.HasItem(memorableItems[(int)SpecialItems.WalkingStick]))
+            else if (collision.collider.CompareTag("High grass"))
             {
-                if (!hasSpeechBubble)
+                if (!MemorableItemManager.instance.ItemFound(item))
                 {
-                    PopSpeechBubble(2);
+                    if (!hasSpeechBubble)
+                    {
+                        PopSpeechBubble(item);
+                    }
                 }
             }
         }
     }
 
-    public void PopSpeechBubble(int id)
+    public void PopSpeechBubble(MemorableItem item)
     {
         GameObject bubble = Instantiate(speechBubble, bubbleSpawnPos.transform.position, Quaternion.identity);
-        bubble.transform.GetChild(0).GetComponent<SpeechBubbleController>().SetBubble(memorableItems[id]);
+        bubble.transform.GetChild(0).GetComponent<SpeechBubbleController>().SetBubble(item);
+        Vector3 temp = bubble.transform.localScale;
+        temp.x *= Mathf.Sign(this.transform.localScale.x);
+        bubble.transform.localScale = temp;
         bubble.transform.parent = transform;
         hasSpeechBubble = true;
     }

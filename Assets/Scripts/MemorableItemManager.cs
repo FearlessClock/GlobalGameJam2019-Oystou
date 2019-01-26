@@ -39,9 +39,10 @@ public class MemorableItemManager : MonoBehaviour
         }
     }
 
-    public bool HasItem(MemorableItem item)
+    public bool ItemFound(MemorableItem item)
     {
         bool hasitem = PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + item.ID) == 0 ? false : true;
         return hasitem;
     }
+    
 }

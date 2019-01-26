@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb23b365e65c33043ace3562a029d67a, type: 3}
   m_Name: WalkingStickMemorable8
   m_EditorClassIdentifier: 
-  ID: 8
+  ID: 7
   worldItem: {fileID: 8925922042454642252, guid: 89fe2e190d93d1f4ea429f0445529c5b,
     type: 3}
