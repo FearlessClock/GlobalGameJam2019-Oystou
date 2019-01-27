@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1179471399761635928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4923405892735787897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583dc192bcb7c0040836490a2c011433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partSys: {fileID: 5896763331111508488}
 --- !u!1 &6051120635274291987
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +24,6 @@ GameObject:
   - component: {fileID: 4516414099567290597}
   - component: {fileID: 6021980672261382417}
   - component: {fileID: 4290540087647360129}
-  - component: {fileID: 1317990448660719781}
   m_Layer: 0
   m_Name: MomorableItemBase
   m_TagString: MemorableItem
@@ -220,8 +232,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9186978399542581843, guid: 70c07fe726d7a264c85434b0419e93db,
+        type: 3}
+      propertyPath: InheritVelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186978399542581843, guid: 70c07fe726d7a264c85434b0419e93db,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 3.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186978399542581843, guid: 70c07fe726d7a264c85434b0419e93db,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70c07fe726d7a264c85434b0419e93db, type: 3}
+--- !u!1 &4923405892735787897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7707986348787606306, guid: 70c07fe726d7a264c85434b0419e93db,
+    type: 3}
+  m_PrefabInstance: {fileID: 3362842209494712411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7470965849475815309 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5261617200024508374, guid: 70c07fe726d7a264c85434b0419e93db,
