@@ -58,8 +58,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8741894998808642778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.00054085, y: -0.064365, z: 0}
+  m_LocalScale: {x: 1.12, y: 1.12, z: 1.12}
   m_Children:
   - {fileID: 8741894998927824983}
   m_Father: {fileID: 8741894997621841726}
@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58dc614cf396814e9b260192000d4ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubbleObject: {fileID: 11400000, guid: 871a5e6f26aba704f95bac18204faa2d, type: 2}
 --- !u!95 &8741894998808642758
 Animator:
   serializedVersion: 3
@@ -170,8 +169,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8741894998927825000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.124, y: 0.67, z: 0}
-  m_LocalScale: {x: 0.68693, y: 0.68693, z: 0.68693}
+  m_LocalPosition: {x: 0.124, y: 0.63, z: 0}
+  m_LocalScale: {x: 0.6428703, y: 0.6428703, z: 0.6428703}
   m_Children: []
   m_Father: {fileID: 8741894998808642759}
   m_RootOrder: 0
