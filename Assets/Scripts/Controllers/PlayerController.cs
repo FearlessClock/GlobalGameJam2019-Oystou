@@ -319,7 +319,6 @@ public class PlayerController : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.collider.name);
         MemorableHolder memoHolder = collision.collider.GetComponent<MemorableHolder>();
 
         if (memoHolder) {
