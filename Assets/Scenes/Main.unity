@@ -658,6 +658,12 @@ PrefabInstance:
       objectReference: {fileID: 2019462309}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f23b0e7a22528ad4a9691bdc1d5e4e84, type: 3}
+--- !u!1 &787646991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8925922042454642252, guid: 89fe2e190d93d1f4ea429f0445529c5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 154852061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &791799052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -673,12 +679,12 @@ PrefabInstance:
     - target: {fileID: 7389198502743357050, guid: 560833df5181e11458c44559309a2ac3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.3428135
+      value: -37.69
       objectReference: {fileID: 0}
     - target: {fileID: 7389198502743357050, guid: 560833df5181e11458c44559309a2ac3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.1005583
+      value: 21.18
       objectReference: {fileID: 0}
     - target: {fileID: 7389198502743357050, guid: 560833df5181e11458c44559309a2ac3,
         type: 3}
@@ -916,8 +922,7 @@ PrefabInstance:
         type: 3}
       propertyPath: memorableItems.Array.data[7]
       value: 
-      objectReference: {fileID: 8925922042454642252, guid: 89fe2e190d93d1f4ea429f0445529c5b,
-        type: 3}
+      objectReference: {fileID: 787646991}
     - target: {fileID: 3523495892755025670, guid: 41a4cd1ffb7590949a5c9fd70475d6bd,
         type: 3}
       propertyPath: memorableItems.Array.data[8]
