@@ -20,10 +20,27 @@ public class AudioManager : MonoBehaviour
     private AudioMixerSnapshot theme4Snapshot;
     private AudioMixerSnapshot theme5Snapshot;
 
+    public static AudioManager instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     int musicPlayingRank = 0;
 
     private void Start()
     {
+
+        DontDestroyOnLoad(this.gameObject);
+
         PlayerController.OnItemPlacedInFoyer += OnItemPlacedInFoyer;
 
         nothingSnapshot = mixer.FindSnapshot("Nothing");
