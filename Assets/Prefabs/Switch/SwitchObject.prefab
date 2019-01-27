@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7425028687989543465}
   - component: {fileID: 7425028687989543466}
   - component: {fileID: 7425028687989543467}
+  - component: {fileID: 1608310337126620468}
   m_Layer: 0
   m_Name: SwitchObject
   m_TagString: Untagged
@@ -48,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   neededItem: {fileID: 11400000, guid: 6f40c04d89c4eaa4d9a1bd439a5b5f86, type: 2}
-  switchFoyerMaxDistance: 2
+  switchFoyerMaxDistance: 4.5
   foyer: {fileID: 0}
   blinker: {fileID: 4605793861855050773, guid: a51d6f3415e8d694c93ee5248895efe6, type: 3}
   powerCable: {fileID: 227169330667135823, guid: 5eded01c39e397c4594b54355aa5cba8,
@@ -85,6 +86,22 @@ MonoBehaviour:
   maxBlinkDistanceSqr: 8
   slowestBlinkTime: 5
   fastestBlinkTime: 0.1
+--- !u!58 &1608310337126620468
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7425028687989543469}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.21}
+  serializedVersion: 2
+  m_Radius: 4.5
 --- !u!1 &7425028688731224522
 GameObject:
   m_ObjectHideFlags: 0

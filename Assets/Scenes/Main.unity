@@ -469,6 +469,11 @@ PrefabInstance:
       propertyPath: normalSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6261066223369216114, guid: 13e2d82874b174542aa609b4e2c09255,
+        type: 3}
+      propertyPath: carrySpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e2d82874b174542aa609b4e2c09255, type: 3}
 --- !u!1 &351725079
@@ -571,7 +576,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.21}
   serializedVersion: 2
-  m_Radius: 3.79
+  m_Radius: 4.5
 --- !u!114 &355584865 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7425028687989543465, guid: 43a44f1180f6f294d8bd9be9f4169903,

@@ -23,15 +23,21 @@ public class FoyerHouseSpriteSwap : MonoBehaviour
 
     private void OnItemDropped(GameObject item)
     {
-        spriteRenderer.sprite = placedSprite;
-        particles.Stop();
-        particles.Play();
+        if (item.CompareTag(this.tag))
+        {
+            spriteRenderer.sprite = placedSprite;
+            particles.Stop();
+            particles.Play();
+        }
     }
 
     private void OnItemCarried(GameObject item)
     {
-        spriteRenderer.sprite = pickedUpSprite;
-        particles.Stop();
-        particles.Play();
+        if (item.CompareTag(this.tag))
+        {
+            spriteRenderer.sprite = pickedUpSprite;
+            particles.Stop();
+            particles.Play();
+        }
     }
 }
