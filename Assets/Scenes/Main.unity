@@ -1226,6 +1226,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2004060122751664790, guid: 925276f2647f83142af2262786e3a381,
+        type: 3}
+      propertyPath: walkingStick
+      value: 
+      objectReference: {fileID: 11400000, guid: 08aa376fe46e1f646ab924881042fed0,
+        type: 2}
+    - target: {fileID: 2004060122751664790, guid: 925276f2647f83142af2262786e3a381,
+        type: 3}
+      propertyPath: clilmbingShoes
+      value: 
+      objectReference: {fileID: 11400000, guid: bcfecaa72f73fe841b8d153fbede34a9,
+        type: 2}
+    - target: {fileID: 2004060122751664790, guid: 925276f2647f83142af2262786e3a381,
+        type: 3}
+      propertyPath: waterWings
+      value: 
+      objectReference: {fileID: 11400000, guid: 6f40c04d89c4eaa4d9a1bd439a5b5f86,
+        type: 2}
+    - target: {fileID: 2004060122751664790, guid: 925276f2647f83142af2262786e3a381,
+        type: 3}
+      propertyPath: lamp
+      value: 
+      objectReference: {fileID: 11400000, guid: a3adabb2cd4b5424ba36a11bbef638b1,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 925276f2647f83142af2262786e3a381, type: 3}
 --- !u!1001 &1378124018

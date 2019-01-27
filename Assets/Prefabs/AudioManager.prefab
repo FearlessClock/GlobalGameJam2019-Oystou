@@ -49,10 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 7fdc42d4a38d3014bbe32bb05de2a0e7, type: 2}
-  walkingStick: {fileID: 11400000, guid: 6f40c04d89c4eaa4d9a1bd439a5b5f86, type: 2}
-  clilmbingShoes: {fileID: 11400000, guid: a3adabb2cd4b5424ba36a11bbef638b1, type: 2}
-  waterWings: {fileID: 11400000, guid: cd6d44570ea99994f91d151ad6b81b6f, type: 2}
-  lamp: {fileID: 11400000, guid: 2d1c91ffc320e8c478cead912c3841f4, type: 2}
+  walkingStick: {fileID: 11400000, guid: 08aa376fe46e1f646ab924881042fed0, type: 2}
+  clilmbingShoes: {fileID: 11400000, guid: bcfecaa72f73fe841b8d153fbede34a9, type: 2}
+  waterWings: {fileID: 11400000, guid: 6f40c04d89c4eaa4d9a1bd439a5b5f86, type: 2}
+  lamp: {fileID: 11400000, guid: a3adabb2cd4b5424ba36a11bbef638b1, type: 2}
 --- !u!82 &2004060122751664791
 AudioSource:
   m_ObjectHideFlags: 0
