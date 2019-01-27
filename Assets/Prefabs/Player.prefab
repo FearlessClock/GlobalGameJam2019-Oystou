@@ -954,8 +954,8 @@ MonoBehaviour:
   foyer: {fileID: 0}
   playerState: 0
   movementSpeed: 0
-  carrySpeed: 2.5
-  normalSpeed: 3
+  carrySpeed: 3
+  normalSpeed: 4
   fallingBackTime: 0.3
   timeToPushFoyer: 0.3
   carryingDistance: 0.9
@@ -966,12 +966,12 @@ MonoBehaviour:
   timeBTWDustSpawn: 0.1
   speechBubble: {fileID: 8741894997621841727, guid: 9202b8e4adb52114ba367593e272ef6b,
     type: 3}
-  speechBubbleObjects:
-  - {fileID: 11400000, guid: 14d51c054e3dc9948925a590b3fdaa99, type: 2}
-  - {fileID: 11400000, guid: 719574036c70b8c419eff462dc6070f9, type: 2}
-  - {fileID: 11400000, guid: e38349a8e276fff43b872da3118dfcc4, type: 2}
   bubbleSpawnPos: {fileID: 601110515813872288}
   hasSpeechBubble: 0
+  maxTimeAwayFromHome: 20
+  homesickFader: {fileID: 0}
+  homesickSlowAmount: 0.4
+  homesickHouse: {fileID: 11400000, guid: 6d36166cf33872749aa03de01a5311be, type: 2}
 --- !u!50 &6261066223369216115
 Rigidbody2D:
   serializedVersion: 4

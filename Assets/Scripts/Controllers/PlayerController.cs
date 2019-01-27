@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum PlayerState { Moving, FallingBack, FoundObject, CarryItem}
 
@@ -52,6 +53,13 @@ public class PlayerController : MonoBehaviour
     public GameObject bubbleSpawnPos;
     public bool hasSpeechBubble = false;
 
+    public float maxTimeAwayFromHome;
+    private float timerHomeSick = 0;
+    public Image homesickFader;
+    public float homesickSlowAmount;
+    private float homesickSlowAmountInEffect = 1;
+    public MemorableItem homesickHouse;
+
     void Start()
     {
         if(instance == null)
@@ -68,6 +76,34 @@ public class PlayerController : MonoBehaviour
 
         FoyerPushCollisionController.OnPushTriggerEvent += OnNextToFoyer;
         ItemController.OnItemPickedUp += OnMemorableItemPickedUp;
+
+        if(SceneManager.GetActiveScene().name == "Main")
+        {
+            StartCoroutine("CountdownHomesick");
+        }
+    }
+    bool showHouseBubble = false;
+    public IEnumerator CountdownHomesick()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.01f);
+            timerHomeSick += Time.deltaTime;
+            if(timerHomeSick > maxTimeAwayFromHome / 1.5)
+            {
+                if (!showHouseBubble)
+                {
+                    PopSpeechBubble(homesickHouse, 4f);
+                }
+                showHouseBubble = true;
+            }
+            if (timerHomeSick > maxTimeAwayFromHome)
+            {
+                timerHomeSick = maxTimeAwayFromHome;
+                homesickSlowAmountInEffect = homesickSlowAmount;
+            }
+            homesickFader.material.SetFloat("_fadeScale", 1-(timerHomeSick / maxTimeAwayFromHome)*1.6f);
+        }
     }
 
     private void OnDestroy()
@@ -201,7 +237,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("IsMoving", true);
             SpawnDust();
         }
-        rb.velocity = moveDirection * movementSpeed;
+        rb.velocity = moveDirection * movementSpeed * homesickSlowAmountInEffect;
     }
 
     private Vector3 GetMoveDirection()
@@ -333,7 +369,7 @@ public class PlayerController : MonoBehaviour
 
                     if (!hasSpeechBubble)
                     {
-                        PopSpeechBubble(item);
+                        PopSpeechBubble(item, 2);
                     }
                 }
             }
@@ -343,7 +379,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (!hasSpeechBubble)
                     {
-                        PopSpeechBubble(item);
+                        PopSpeechBubble(item, 2);
                     }
                 }
             }
@@ -353,17 +389,18 @@ public class PlayerController : MonoBehaviour
                 {
                     if (!hasSpeechBubble)
                     {
-                        PopSpeechBubble(item);
+                        PopSpeechBubble(item, 2);
                     }
                 }
             }
         }
     }
 
-    public void PopSpeechBubble(MemorableItem item)
+    public void PopSpeechBubble(MemorableItem item, float time)
     {
         GameObject bubble = Instantiate(speechBubble, bubbleSpawnPos.transform.position, Quaternion.identity);
         bubble.transform.GetChild(0).GetComponent<SpeechBubbleController>().SetBubble(item);
+        bubble.transform.GetChild(0).GetComponent<SpeechBubbleController>().destroyTime = time;
         Vector3 temp = bubble.transform.localScale;
         temp.x *= Mathf.Sign(this.transform.localScale.x);
         bubble.transform.localScale = temp;
