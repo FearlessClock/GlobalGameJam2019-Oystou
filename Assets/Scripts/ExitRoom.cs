@@ -10,10 +10,7 @@ public class ExitRoom : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if(OnRoomExit != null)
-            {
-                OnRoomExit();
-            }
+            OnRoomExit?.Invoke();
         }
     }
 }

@@ -10,34 +10,6 @@ public class FoyerPushCollisionController : MonoBehaviour
 
     private bool isCarried = false;
 
-    //private void Start()
-    //{
-    //    PlayerController.OnItemCarried += OnSelfCarried;
-    //    PlayerController.OnItemDropped += OnSelfDropped;
-    //}
-
-    //private void OnDestroy()
-    //{
-    //    PlayerController.OnItemCarried -= OnSelfCarried;
-    //    PlayerController.OnItemDropped -= OnSelfDropped;
-    //}
-
-    //private void OnSelfCarried(GameObject item)
-    //{
-    //    if (item.CompareTag(this.tag))
-    //    {
-    //        isCarried = true;
-    //        OnPushTriggerEvent?.Invoke(false);
-    //    }
-    //}
-    //private void OnSelfDropped(GameObject item)
-    //{
-    //    if (item.CompareTag(this.tag))
-    //    {
-    //        isCarried = false;
-    //    }
-    //}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!isCarried && collision.CompareTag("Player"))
