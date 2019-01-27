@@ -12,12 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwimmingMemory6
       objectReference: {fileID: 0}
-    - target: {fileID: 4290540087647360129, guid: 9a9efdcee9ef0464db2ac589be3de64c,
-        type: 3}
-      propertyPath: itemSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: f7d650b3f29e4634893a9951342ab20a,
-        type: 2}
     - target: {fileID: 4516414099567290597, guid: 9a9efdcee9ef0464db2ac589be3de64c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73,5 +67,48 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4290540087647360129, guid: 9a9efdcee9ef0464db2ac589be3de64c,
+        type: 3}
+      propertyPath: itemSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: f7d650b3f29e4634893a9951342ab20a,
+        type: 2}
+    - target: {fileID: 768529064309999395, guid: 9a9efdcee9ef0464db2ac589be3de64c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.26496
+      objectReference: {fileID: 0}
+    - target: {fileID: 768529064309999395, guid: 9a9efdcee9ef0464db2ac589be3de64c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.26496
+      objectReference: {fileID: 0}
+    - target: {fileID: 768529064309999395, guid: 9a9efdcee9ef0464db2ac589be3de64c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.26496
+      objectReference: {fileID: 0}
+    - target: {fileID: 768529064309999395, guid: 9a9efdcee9ef0464db2ac589be3de64c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.052
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237462576186519471, guid: 9a9efdcee9ef0464db2ac589be3de64c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a918c320feca96749aa116fd9e5ce249,
+        type: 3}
+    - target: {fileID: 1179471399761635928, guid: 9a9efdcee9ef0464db2ac589be3de64c,
+        type: 3}
+      propertyPath: partSys
+      value: 
+      objectReference: {fileID: 8787468349193502551}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a9efdcee9ef0464db2ac589be3de64c, type: 3}
+--- !u!198 &8787468349193502551 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5896763331111508488, guid: 9a9efdcee9ef0464db2ac589be3de64c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2893238293252138335}
+  m_PrefabAsset: {fileID: 0}

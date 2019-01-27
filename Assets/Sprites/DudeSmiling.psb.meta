@@ -1,0 +1,271 @@
+fileFormatVersion: 2
+guid: 6370d993f3590004fb6323c64cfeda9b
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: foot right_GO/foot right_GO
+    100006: foot right_GO/foot right_GO/eyes
+    100008: foot right_GO/foot right_GO/foot left
+    100010: foot right_GO/foot right_GO/foot right
+    100014: foot right_GO/foot right_GO/hat outer
+    100018: foot right_GO/foot right_GO/Layer 3
+    400000: foot right_GO/foot right_GO/Transform
+    400006: foot right_GO/foot right_GO/eyes/Transform
+    400008: foot right_GO/foot right_GO/foot left/Transform
+    400010: foot right_GO/foot right_GO/foot right/Transform
+    400014: foot right_GO/foot right_GO/hat outer/Transform
+    400018: foot right_GO/foot right_GO/Layer 3/Transform
+    2800000: DudeSmiling
+    21200004: foot right_GO/foot right_GO/eyes/SpriteRenderer
+    21200006: foot right_GO/foot right_GO/foot left/SpriteRenderer
+    21200008: foot right_GO/foot right_GO/foot right/SpriteRenderer
+    21200012: foot right_GO/foot right_GO/hat outer/SpriteRenderer
+    21200016: foot right_GO/foot right_GO/Layer 3/SpriteRenderer
+    21300002: hat outer
+    21300006: eyes
+    21300012: Layer 3
+    21300018: foot left
+    21300020: foot right
+    100100000: foot right_GO
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: hat outer
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 136
+      width: 124
+      height: 117
+    spriteID: abff64b0c71ac5c4fa5172ebeec9e4ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -38, y: 84}
+  - name: eyes
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 141
+      width: 69
+      height: 61
+    spriteID: ced59547e0398254a9281a68566eea70
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 65, y: 100}
+  - name: Layer 3
+    originalName: 
+    pivot: {x: 0.3642108, y: 0.5352052}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 86
+      y: 23
+      width: 43
+      height: 42
+    spriteID: 2754a7549d8879741a9478e387e68897
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+  - name: foot left
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 141
+      width: 15
+      height: 11
+    spriteID: bdfb0268d08d08c4fb577e7a977a31a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 111, y: 115}
+  - name: foot right
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 213
+      y: 159
+      width: 15
+      height: 11
+    spriteID: e0f9062153ecb7b4aab773f70e752a71
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 120, y: 134}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 256
+  importedTextureHeight: 256
+  documentSize: {x: 190, y: 171}
+  textureActualWidth: 256
+  textureActualHeight: 256
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: hat outer
+    spriteName: hat outer
+    isGroup: 0
+    parentIndex: -1
+    spriteID: abff64b0c71ac5c4fa5172ebeec9e4ad
+    layerID: 3
+    mosaicPosition: {x: 4, y: 141}
+  - name: eyes
+    spriteName: eyes
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ced59547e0398254a9281a68566eea70
+    layerID: 8
+    mosaicPosition: {x: 132, y: 141}
+  - name: Layer 3
+    spriteName: Layer 3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2754a7549d8879741a9478e387e68897
+    layerID: 11
+    mosaicPosition: {x: 4, y: 4}
+  - name: foot left
+    spriteName: foot left
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bdfb0268d08d08c4fb577e7a977a31a8
+    layerID: 19
+    mosaicPosition: {x: 213, y: 141}
+  - name: foot right
+    spriteName: foot right
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e0f9062153ecb7b4aab773f70e752a71
+    layerID: 16
+    mosaicPosition: {x: 213, y: 159}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+  boneGOs: []
+  generateGOHierarchy: 0
