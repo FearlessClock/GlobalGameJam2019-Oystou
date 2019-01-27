@@ -46,8 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomMovingDistance: 10
   closeChangeDirectionDistance: 0.3
-  speed: 2
+  speed: 4
   positionWaitTime: 1
+  animator: {fileID: 5928609116571424128}
 --- !u!1 &7201958986272894908
 GameObject:
   m_ObjectHideFlags: 0

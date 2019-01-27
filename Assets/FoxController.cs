@@ -11,6 +11,8 @@ public class FoxController : MonoBehaviour
     public float speed;
     public float positionWaitTime;
 
+    public Animator animator;
+
     private bool calculatingNewPosition = false;
 
     private void Start()
@@ -26,14 +28,18 @@ public class FoxController : MonoBehaviour
         {
             StartCoroutine("WaitAtPosition");
         }
-
-        this.transform.position += (target - this.transform.position).normalized * speed * Time.deltaTime;
+        if (!calculatingNewPosition)
+        {
+            this.transform.position += (target - this.transform.position).normalized * speed * Time.deltaTime;
+        }
     }
 
     private IEnumerator WaitAtPosition()
     {
         calculatingNewPosition = true;
+        animator.SetTrigger("Wait");
         yield return new WaitForSeconds(positionWaitTime);
+        animator.SetTrigger("Wait");
         target = initPosition + Random.insideUnitSphere * randomMovingDistance;
         target.z = initPosition.z;
         this.transform.localScale = new Vector3(Mathf.Sign((target - this.transform.position).normalized.x), 1, 1);
