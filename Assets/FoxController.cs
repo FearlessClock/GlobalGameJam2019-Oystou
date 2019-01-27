@@ -36,6 +36,7 @@ public class FoxController : MonoBehaviour
         yield return new WaitForSeconds(positionWaitTime);
         target = initPosition + Random.insideUnitSphere * randomMovingDistance;
         target.z = initPosition.z;
+        this.transform.localScale = new Vector3(Mathf.Sign((target - this.transform.position).normalized.x), 1, 1);
         calculatingNewPosition = false;
     }
     

@@ -58,6 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7201958986272894909}
   - component: {fileID: 7201958986272894910}
+  - component: {fileID: 5928609116571424128}
   m_Layer: 0
   m_Name: FoxRenderer
   m_TagString: Untagged
@@ -116,7 +117,7 @@ SpriteRenderer:
   m_SortingLayerID: -1696995853
   m_SortingLayer: 2
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 1b9ffae206712424a8567d70fd65fc9d, type: 3}
+  m_Sprite: {fileID: 21300002, guid: d4aa9c930832989448c15bfcf9ab365f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,3 +128,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5928609116571424128
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7201958986272894908}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05b0f20e15d1eea459b3557fc41ac409, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
