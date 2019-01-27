@@ -1226,6 +1226,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2004060122751664790, guid: 925276f2647f83142af2262786e3a381,
+        type: 3}
+      propertyPath: gem1
+      value: 
+      objectReference: {fileID: 11400000, guid: 6f40c04d89c4eaa4d9a1bd439a5b5f86,
+        type: 2}
+    - target: {fileID: 2004060122751664790, guid: 925276f2647f83142af2262786e3a381,
+        type: 3}
+      propertyPath: gem2
+      value: 
+      objectReference: {fileID: 11400000, guid: a3adabb2cd4b5424ba36a11bbef638b1,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 925276f2647f83142af2262786e3a381, type: 3}
 --- !u!1001 &1378124018
@@ -1314,8 +1326,7 @@ PrefabInstance:
         type: 3}
       propertyPath: memorableItems.Array.data[5]
       value: 
-      objectReference: {fileID: 8925922042454642252, guid: f625ab143134f144682403639c975d8d,
-        type: 3}
+      objectReference: {fileID: 2061268162}
     - target: {fileID: 3523495892755025670, guid: 41a4cd1ffb7590949a5c9fd70475d6bd,
         type: 3}
       propertyPath: memorableItems.Array.data[6]
@@ -2477,6 +2488,12 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.21}
   serializedVersion: 2
   m_Radius: 3.79
+--- !u!1 &2061268162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8925922042454642252, guid: f625ab143134f144682403639c975d8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1916467449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2128817375 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8925922042454642252, guid: 99aab7ec4cd746240be91e91aedce1cb,
