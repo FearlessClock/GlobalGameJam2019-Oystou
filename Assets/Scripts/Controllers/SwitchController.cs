@@ -87,9 +87,12 @@ public class SwitchController : MonoBehaviour
             {
                 if (hit.CompareTag("Foyer") && !playerController.isCarryingFoyer)
                 {
-                    ActivateSwitch();
+                    if(PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + neededItem.ID, 0) == 1)
+                    {
+                        ActivateSwitch();
 
-                    hasActivatedMechanisme = true;
+                        hasActivatedMechanisme = true;
+                    }
                 }
             }
         }
