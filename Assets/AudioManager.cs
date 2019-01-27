@@ -10,7 +10,8 @@ public class AudioManager : MonoBehaviour
     public MemorableItem walkingStick;
     public MemorableItem clilmbingShoes;
     public MemorableItem waterWings;
-    public MemorableItem lamp;
+    public MemorableItem gem1;
+    public MemorableItem gem2;
 
     private AudioMixerSnapshot nothingSnapshot;
     private AudioMixerSnapshot theme1Snapshot;
@@ -41,7 +42,8 @@ public class AudioManager : MonoBehaviour
         musicPlayingRank += PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + walkingStick.ID, 0);
         musicPlayingRank += PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + clilmbingShoes.ID, 0);
         musicPlayingRank += PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + waterWings.ID, 0);
-        musicPlayingRank += PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + lamp.ID, 0);
+        musicPlayingRank += PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + gem1.ID, 0);
+        musicPlayingRank += PlayerPrefs.GetInt(PlayerPrefsStrings.itemId + gem2.ID, 0);
         SetSnapshotFromState();
     }
 
@@ -50,22 +52,22 @@ public class AudioManager : MonoBehaviour
         switch (musicPlayingRank)
         {
             case 0:
-                nothingSnapshot.TransitionTo(0.4f);
+                nothingSnapshot.TransitionTo(0.2f);
                 break;
             case 1:
-                theme1Snapshot.TransitionTo(0.4f);
+                theme1Snapshot.TransitionTo(0.2f);
                 break;
             case 2:
-                theme2Snapshot.TransitionTo(0.4f);
+                theme2Snapshot.TransitionTo(0.2f);
                 break;
             case 3:
-                theme3Snapshot.TransitionTo(0.4f);
+                theme3Snapshot.TransitionTo(0.2f);
                 break;
             case 4:
-                theme4Snapshot.TransitionTo(0.4f);
+                theme4Snapshot.TransitionTo(0.2f);
                 break;
             case 5:
-                theme5Snapshot.TransitionTo(0.4f);
+                theme5Snapshot.TransitionTo(0.2f);
                 break;
             default:
                 break;
